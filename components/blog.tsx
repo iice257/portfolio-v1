@@ -11,7 +11,7 @@ export default function Blog() {
           <div className="space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Blog</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Thoughts, tutorials, and insights on software development
+              Thoughts, tips, and insights about tech.
             </p>
           </div>
 
@@ -20,12 +20,11 @@ export default function Blog() {
               <CardContent className="p-6 text-center">
                 <h3 className="text-xl font-bold mb-4">Visit My Blog</h3>
                 <p className="text-muted-foreground mb-6">
-                  I write about JavaScript, React, Node.js, AWS, and other technologies on my Hashnode blog. Check out
-                  my latest articles and tutorials.
+                  I yap about JavaScript, React, Node.js, my projects, and other technologies on my Twitter (X)). Check it out:
                 </p>
                 <Button asChild>
-                  <Link href="https://nihalmaskey.hashnode.dev" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" /> Visit Blog
+                  <Link href="https://x.com/ice257_" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" /> Visit Twitter
                   </Link>
                 </Button>
               </CardContent>
