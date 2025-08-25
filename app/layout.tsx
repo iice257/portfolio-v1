@@ -57,9 +57,10 @@ export const metadata: Metadata = {
     follow: true,
   },
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
+    { media: "(prefers-color-scheme: light)", color: "#0ea5e9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0284c7" },
   ],
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -77,5 +78,4 @@ export default function RootLayout({
   )
 }
 
-
-import './globals.css'
+import "./globals.css"

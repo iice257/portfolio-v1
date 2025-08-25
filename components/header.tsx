@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useTheme } from "next-themes"
 
-// Updated nav items - removed Skills as it's now part of Experience
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
@@ -22,27 +22,63 @@ const navItems = [
   { name: "Contact Me", href: "#contact" },
 ]
 
+const itemVariants = {
+  initial: { rotateX: 0, opacity: 1 },
+  hover: { rotateX: -90, opacity: 0 },
+}
+
+const backVariants = {
+  initial: { rotateX: 90, opacity: 0 },
+  hover: { rotateX: 0, opacity: 1 },
+}
+
+const glowVariants = {
+  initial: { opacity: 0, scale: 0.8 },
+  hover: {
+    opacity: 1,
+    scale: 1.5,
+    transition: {
+      opacity: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
+      scale: { duration: 0.5, type: "spring", stiffness: 300, damping: 25 },
+    },
+  },
+}
+
+const navGlowVariants = {
+  initial: { opacity: 0 },
+  hover: {
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.4, 0, 0, 1],
+    },
+  },
+}
+
+const sharedTransition = {
+  type: "spring",
+  stiffness: 100,
+  damping: 20,
+  duration: 0.5,
+}
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
   const pathname = usePathname()
+  const { theme } = useTheme()
 
-  // Function to determine which section is currently in view
   const determineActiveSection = useCallback(() => {
     const sections = navItems.map((item) => item.href.substring(1))
 
-    // Add the sections that are not in the navbar but still need to be detected
     const allSections = [...sections, "open-source", "skills"]
 
-    // Find the section that is currently in view
     for (let i = allSections.length - 1; i >= 0; i--) {
       const section = document.getElementById(allSections[i])
       if (section) {
         const rect = section.getBoundingClientRect()
-        // If the section is in the viewport (with some buffer for better UX)
         if (rect.top <= 150 && rect.bottom >= 150) {
-          // Map to the closest navbar item if it's not in the navbar
           const sectionId = allSections[i]
           if (sectionId === "open-source") return "projects"
           if (sectionId === "skills") return "experience"
@@ -52,7 +88,6 @@ export default function Header() {
       }
     }
 
-    // Default to home if no section is in view
     return "home"
   }, [])
 
@@ -63,20 +98,18 @@ export default function Header() {
     }
 
     window.addEventListener("scroll", handleScroll)
-    // Initial check
     setActiveSection(determineActiveSection())
 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [determineActiveSection])
 
-  // Smooth scroll to section when clicking nav items
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
     const targetId = href.substring(1)
     const element = document.getElementById(targetId)
     if (element) {
       window.scrollTo({
-        top: element.offsetTop - 80, // Offset for header height
+        top: element.offsetTop - 80,
         behavior: "smooth",
       })
       setActiveSection(targetId)
@@ -84,14 +117,25 @@ export default function Header() {
     }
   }
 
+  const isDarkTheme = theme === "dark"
+
   return (
-    <header
+    <motion.header
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "bg-background/70 backdrop-blur-lg shadow-sm border-b border-border/50" : "bg-transparent",
+        "fixed top-0 z-50 w-full transition-all duration-500 ease-out",
+        scrolled ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/50" : "bg-transparent",
       )}
+      initial="initial"
+      whileHover="hover"
     >
-      <div className="container flex h-16 items-center justify-between">
+      <motion.div
+        className={`absolute -inset-1 bg-gradient-to-r ${
+          isDarkTheme ? "from-sky-400/20 via-sky-500/30 to-sky-400/20" : "from-sky-400/10 via-sky-500/20 to-sky-400/10"
+        } rounded-lg z-0 pointer-events-none`}
+        variants={navGlowVariants}
+      />
+
+      <div className="container flex h-16 items-center justify-between relative z-10">
         <Link href="/" className="flex items-center space-x-2">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -104,7 +148,6 @@ export default function Header() {
           </motion.div>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <div className="relative flex space-x-4 items-center">
             {navItems.map((item, index) => {
@@ -117,7 +160,18 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   className="relative"
+                  style={{ perspective: "600px" }}
+                  whileHover="hover"
                 >
+                  <motion.div
+                    className="absolute inset-0 z-0 pointer-events-none rounded-xl"
+                    variants={glowVariants}
+                    style={{
+                      background: `radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(2,132,199,0.06) 50%, rgba(3,105,161,0) 100%)`,
+                      opacity: 0,
+                    }}
+                  />
+
                   {isActive && (
                     <motion.div
                       layoutId="activeSection"
@@ -125,23 +179,49 @@ export default function Header() {
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                  <Link
-                    href={item.href}
-                    onClick={(e) => scrollToSection(e, item.href)}
-                    className={cn(
-                      "text-sm font-medium transition-colors px-3 py-2 rounded-md relative",
-                      isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground",
-                    )}
+
+                  <motion.div
+                    className="relative"
+                    variants={itemVariants}
+                    transition={sharedTransition}
+                    style={{ transformStyle: "preserve-3d", transformOrigin: "center bottom" }}
                   >
-                    {item.name}
-                    {isActive && (
-                      <motion.div
-                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                        layoutId="underline"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                      />
-                    )}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      onClick={(e) => scrollToSection(e, item.href)}
+                      className={cn(
+                        "text-sm font-medium transition-colors px-3 py-2 rounded-md relative block",
+                        isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground",
+                      )}
+                    >
+                      {item.name}
+                      {isActive && (
+                        <motion.div
+                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                          layoutId="underline"
+                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+                  </motion.div>
+
+                  <motion.div
+                    className="absolute inset-0"
+                    variants={backVariants}
+                    transition={sharedTransition}
+                    style={{ transformStyle: "preserve-3d", transformOrigin: "center top", rotateX: 90 }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={(e) => scrollToSection(e, item.href)}
+                      className={cn(
+                        "text-sm font-medium transition-colors px-3 py-2 rounded-md relative block",
+                        isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground",
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
                 </motion.div>
               )
             })}
@@ -149,7 +229,6 @@ export default function Header() {
           <ModeToggle />
         </nav>
 
-        {/* Mobile Navigation Toggle */}
         <div className="flex items-center md:hidden space-x-4">
           <ModeToggle />
           <Button
@@ -174,7 +253,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
       <motion.div
         className="md:hidden overflow-hidden"
         initial={{ height: 0 }}
@@ -205,6 +283,6 @@ export default function Header() {
           </nav>
         </div>
       </motion.div>
-    </header>
+    </motion.header>
   )
 }

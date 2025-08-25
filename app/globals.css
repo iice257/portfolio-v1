@@ -10,8 +10,8 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 11 76% 80%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 200 100% 50%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
@@ -22,7 +22,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 11 76% 80%;
+    --ring: 200 100% 50%;
     --radius: 0.5rem;
     --font-mono:
       "Geist Mono", ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -35,8 +35,8 @@
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
-    --primary: 11 76% 80%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 200 100% 60%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 15%;
@@ -47,13 +47,15 @@
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 11 76% 80%;
+    --ring: 200 100% 60%;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, opacity 0.3s
+      ease;
   }
   body {
     @apply bg-background text-foreground;
@@ -63,13 +65,13 @@
 }
 
 .animate-in {
-  animation: animateIn 0.5s ease-in-out;
+  animation: animateIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes animateIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -79,11 +81,13 @@
 
 .timeline-item {
   @apply relative pl-8 pb-12;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-item::before {
   content: "";
   @apply absolute left-0 top-1 h-4 w-4 rounded-full bg-primary;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-item::after {
@@ -94,6 +98,7 @@
   height: 100%;
   width: 2px;
   background-color: hsl(var(--border));
+  transition: background-color 0.3s ease;
 }
 
 .timeline-item:last-child::after {
@@ -101,11 +106,11 @@
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-sky-500 to-sky-400 bg-clip-text text-transparent;
 }
 
 .skill-card {
-  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  @apply transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg hover:shadow-sky-500/20;
 }
 
 .animated-background {
@@ -150,9 +155,8 @@
   left: 20%;
 }
 
-/* Project card styles - updated without images */
 .project-card {
-  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10;
 }
 
 .project-content {
@@ -171,10 +175,9 @@
   @apply flex gap-2;
 }
 
-/* Navigation animations */
 .nav-item {
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item::after {
@@ -185,7 +188,7 @@
   width: 0;
   height: 2px;
   background-color: hsl(var(--primary));
-  transition: width 0.3s ease;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item:hover::after {
@@ -196,30 +199,10 @@
   width: 100%;
 }
 
-/* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
 }
 
-/* Enhanced timeline animations */
-.timeline-item {
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.timeline-item:hover {
-  transform: translateX(5px);
-}
-
-.timeline-item::before {
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.timeline-item:hover::before {
-  transform: scale(1.2);
-  background-color: hsl(var(--primary) / 80%);
-}
-
-/* Ensure header is sticky */
 header {
   position: fixed;
   top: 0;
@@ -227,17 +210,46 @@ header {
   right: 0;
   z-index: 50;
   width: 100%;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Glassmorphism effect for header */
 header.scrolled {
-  background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .dark header.scrolled {
-  background-color: rgba(0, 0, 0, 0.7);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+}
+
+button,
+.button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover,
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+  color: hsl(var(--primary));
 }
