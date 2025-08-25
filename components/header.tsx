@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useRef } from "react"
 import { ModeToggle } from "./mode-toggle"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -28,10 +28,11 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("home")
   const pathname = usePathname()
   const { theme } = useTheme()
+  const scrollTimeoutRef = useRef<NodeJS.Timeout>()
+  const rafRef = useRef<number>()
 
   const determineActiveSection = useCallback(() => {
     const sections = navItems.map((item) => item.href.substring(1))
-
     const allSections = [...sections, "open-source"]
 
     for (let i = allSections.length - 1; i >= 0; i--) {
@@ -46,20 +47,42 @@ export default function Header() {
         }
       }
     }
-
     return "home"
   }, [])
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-      setActiveSection(determineActiveSection())
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current)
+      }
+
+      rafRef.current = requestAnimationFrame(() => {
+        const scrollY = window.scrollY
+        setScrolled(scrollY > 10)
+
+        // Throttle active section detection
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current)
+        }
+
+        scrollTimeoutRef.current = setTimeout(() => {
+          setActiveSection(determineActiveSection())
+        }, 50)
+      })
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     setActiveSection(determineActiveSection())
 
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current)
+      }
+    }
   }, [determineActiveSection])
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -67,8 +90,11 @@ export default function Header() {
     const targetId = href.substring(1)
     const element = document.getElementById(targetId)
     if (element) {
+      const headerHeight = 80
+      const elementTop = element.getBoundingClientRect().top + window.pageYOffset
+
       window.scrollTo({
-        top: element.offsetTop - 80,
+        top: elementTop - headerHeight,
         behavior: "smooth",
       })
       setActiveSection(targetId)
@@ -79,19 +105,19 @@ export default function Header() {
   return (
     <motion.header
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-500 ease-out",
-        scrolled ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/50" : "bg-transparent",
+        "fixed top-0 z-50 w-full transition-all duration-300 ease-out",
+        scrolled ? "bg-background/95 backdrop-blur-xl shadow-lg border-b border-border/50" : "bg-transparent",
       )}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
     >
       <div className="container flex h-16 items-center justify-between relative z-10">
         <Link href="/" className="flex items-center space-x-2">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -109,14 +135,14 @@ export default function Header() {
                   key={item.name}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  transition={{ duration: 0.2, delay: index * 0.05, ease: "easeOut" }}
                   className="relative"
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeSection"
                       className="absolute inset-0 bg-primary/10 rounded-md -z-10"
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     />
                   )}
 
@@ -124,7 +150,7 @@ export default function Header() {
                     href={item.href}
                     onClick={(e) => scrollToSection(e, item.href)}
                     className={cn(
-                      "text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md relative block nav-item-hover",
+                      "text-sm font-medium transition-all duration-200 px-3 py-2 rounded-md relative block nav-item-hover",
                       isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground",
                     )}
                   >
@@ -133,7 +159,7 @@ export default function Header() {
                       <motion.div
                         className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
                         layoutId="underline"
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       />
                     )}
                   </Link>
@@ -160,7 +186,7 @@ export default function Header() {
                 open: { rotate: 180 },
                 closed: { rotate: 0 },
               }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </motion.div>
@@ -172,9 +198,9 @@ export default function Header() {
         className="md:hidden overflow-hidden"
         initial={{ height: 0 }}
         animate={{ height: isOpen ? "auto" : 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
       >
-        <div className="container py-4 bg-background/95 backdrop-blur-sm">
+        <div className="container py-4 bg-background/98 backdrop-blur-sm">
           <nav className="flex flex-col space-y-4">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1)
@@ -185,7 +211,7 @@ export default function Header() {
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
                   className={cn(
-                    "text-sm font-medium transition-colors py-2 px-3 rounded-md",
+                    "text-sm font-medium transition-all duration-200 py-2 px-3 rounded-md",
                     isActive
                       ? "bg-primary/10 text-primary font-semibold"
                       : "text-muted-foreground hover:bg-muted/50 hover:text-foreground",

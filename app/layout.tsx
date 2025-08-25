@@ -3,8 +3,6 @@ import type { Metadata } from "next"
 import { Analytics } from "@/components/analytics"
 import ClientLayout from "./client"
 import { Suspense } from "react"
-import FloatingPathsBackground from "@/components/floating-paths"
-import StarryCanvas from "@/components/starry-canvas"
 
 export const metadata: Metadata = {
   title: "Kingsley Aremu | React Developer",
@@ -73,15 +71,7 @@ export default function RootLayout({
   return (
     <>
       <Suspense>
-        <ClientLayout>
-          <div className="block dark:hidden">
-            <FloatingPathsBackground />
-          </div>
-          <div className="hidden dark:block">
-            <StarryCanvas />
-          </div>
-          {children}
-        </ClientLayout>
+        <ClientLayout>{children}</ClientLayout>
       </Suspense>
       <Analytics />
     </>

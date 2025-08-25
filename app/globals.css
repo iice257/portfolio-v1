@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: 210 40% 96%;
+    --background: 210 20% 98%;
     --foreground: 240 10% 3.9%;
-    --card: 210 40% 96%;
+    --card: 210 20% 98%;
     --card-foreground: 240 10% 3.9%;
-    --popover: 210 40% 96%;
+    --popover: 210 20% 98%;
     --popover-foreground: 240 10% 3.9%;
     --primary: 200 100% 50%;
     --primary-foreground: 0 0% 100%;
@@ -55,28 +55,28 @@
   * {
     @apply border-border;
     transition:
-      color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-mono);
     padding-top: 4rem; /* 64px, matches the header height */
+    will-change: background-color, color;
   }
 }
 
 .animate-in {
-  animation: animateIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: animateIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 @keyframes animateIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
   to {
     opacity: 1;
     transform: translateY(0);
@@ -85,13 +85,13 @@
 
 .timeline-item {
   @apply relative pl-8 pb-12;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-item::before {
   content: "";
   @apply absolute left-0 top-1 h-4 w-4 rounded-full bg-primary;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .timeline-item::after {
@@ -102,7 +102,7 @@
   height: 100%;
   width: 2px;
   background-color: hsl(var(--border));
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .timeline-item:last-child::after {
@@ -114,7 +114,8 @@
 }
 
 .skill-card {
-  @apply transition-all duration-500 ease-out hover:scale-105 hover:shadow-lg hover:shadow-sky-500/20;
+  @apply transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg hover:shadow-sky-500/20;
+  will-change: transform, box-shadow;
 }
 
 .animated-background {
@@ -126,13 +127,15 @@
   z-index: 0;
   opacity: 0.4;
   pointer-events: none;
+  will-change: opacity;
 }
 
 .animated-background .blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(60px);
-  transition: transform 3s ease-out;
+  transition: transform 2s ease-out;
+  will-change: transform;
 }
 
 .animated-background .blob-1 {
@@ -160,7 +163,8 @@
 }
 
 .project-card {
-  @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10;
+  @apply transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10;
+  will-change: transform, box-shadow;
 }
 
 .project-content {
@@ -181,7 +185,7 @@
 
 .nav-item {
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item::after {
@@ -192,7 +196,7 @@
   width: 0;
   height: 2px;
   background-color: hsl(var(--primary));
-  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-item:hover::after {
@@ -204,7 +208,8 @@
 }
 
 .nav-item-hover {
-  @apply relative transition-all duration-300 ease-out;
+  @apply relative transition-all duration-200 ease-out;
+  will-change: transform;
 }
 
 .nav-item-hover::before {
@@ -214,7 +219,7 @@
   background: linear-gradient(45deg, transparent, rgba(14, 165, 233, 0.1), transparent);
   border-radius: 8px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
   z-index: -1;
 }
 
@@ -237,26 +242,27 @@ header {
   right: 0;
   z-index: 50;
   width: 100%;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: background-color, backdrop-filter, border-color, box-shadow;
 }
 
 header.scrolled {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .dark header.scrolled {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
 }
 
 button,
 .button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
 }
 
 button:hover,
@@ -266,7 +272,8 @@ button:hover,
 }
 
 .card {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, box-shadow;
 }
 
 .card:hover {
@@ -275,7 +282,7 @@ button:hover,
 }
 
 a {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 a:hover {
