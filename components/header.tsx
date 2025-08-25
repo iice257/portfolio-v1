@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect, useCallback } from "react"
 import { ModeToggle } from "./mode-toggle"
 import { Button } from "@/components/ui/button"
@@ -15,52 +14,13 @@ import { useTheme } from "next-themes"
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Education", href: "#education" },
   { name: "Blog", href: "#blog" },
   { name: "Contact Me", href: "#contact" },
 ]
-
-const itemVariants = {
-  initial: { rotateX: 0, opacity: 1 },
-  hover: { rotateX: -90, opacity: 0 },
-}
-
-const backVariants = {
-  initial: { rotateX: 90, opacity: 0 },
-  hover: { rotateX: 0, opacity: 1 },
-}
-
-const glowVariants = {
-  initial: { opacity: 0, scale: 0.8 },
-  hover: {
-    opacity: 1,
-    scale: 1.5,
-    transition: {
-      opacity: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
-      scale: { duration: 0.5, type: "spring", stiffness: 300, damping: 25 },
-    },
-  },
-}
-
-const navGlowVariants = {
-  initial: { opacity: 0 },
-  hover: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-      ease: [0.4, 0, 0, 1],
-    },
-  },
-}
-
-const sharedTransition = {
-  type: "spring",
-  stiffness: 100,
-  damping: 20,
-  duration: 0.5,
-}
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -72,7 +32,7 @@ export default function Header() {
   const determineActiveSection = useCallback(() => {
     const sections = navItems.map((item) => item.href.substring(1))
 
-    const allSections = [...sections, "open-source", "skills"]
+    const allSections = [...sections, "open-source"]
 
     for (let i = allSections.length - 1; i >= 0; i--) {
       const section = document.getElementById(allSections[i])
@@ -81,7 +41,6 @@ export default function Header() {
         if (rect.top <= 150 && rect.bottom >= 150) {
           const sectionId = allSections[i]
           if (sectionId === "open-source") return "projects"
-          if (sectionId === "skills") return "experience"
           if (!sections.includes(sectionId)) return "home"
           return sectionId
         }
@@ -117,24 +76,16 @@ export default function Header() {
     }
   }
 
-  const isDarkTheme = theme === "dark"
-
   return (
     <motion.header
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-500 ease-out",
         scrolled ? "bg-background/80 backdrop-blur-xl shadow-lg border-b border-border/50" : "bg-transparent",
       )}
-      initial="initial"
-      whileHover="hover"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
     >
-      <motion.div
-        className={`absolute -inset-1 bg-gradient-to-r ${
-          isDarkTheme ? "from-sky-400/20 via-sky-500/30 to-sky-400/20" : "from-sky-400/10 via-sky-500/20 to-sky-400/10"
-        } rounded-lg z-0 pointer-events-none`}
-        variants={navGlowVariants}
-      />
-
       <div className="container flex h-16 items-center justify-between relative z-10">
         <Link href="/" className="flex items-center space-x-2">
           <motion.div
@@ -149,7 +100,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
-          <div className="relative flex space-x-4 items-center">
+          <div className="relative flex space-x-2 items-center">
             {navItems.map((item, index) => {
               const isActive = activeSection === item.href.substring(1)
 
@@ -160,18 +111,7 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   className="relative"
-                  style={{ perspective: "600px" }}
-                  whileHover="hover"
                 >
-                  <motion.div
-                    className="absolute inset-0 z-0 pointer-events-none rounded-xl"
-                    variants={glowVariants}
-                    style={{
-                      background: `radial-gradient(circle, rgba(14,165,233,0.15) 0%, rgba(2,132,199,0.06) 50%, rgba(3,105,161,0) 100%)`,
-                      opacity: 0,
-                    }}
-                  />
-
                   {isActive && (
                     <motion.div
                       layoutId="activeSection"
@@ -180,48 +120,23 @@ export default function Header() {
                     />
                   )}
 
-                  <motion.div
-                    className="relative"
-                    variants={itemVariants}
-                    transition={sharedTransition}
-                    style={{ transformStyle: "preserve-3d", transformOrigin: "center bottom" }}
+                  <Link
+                    href={item.href}
+                    onClick={(e) => scrollToSection(e, item.href)}
+                    className={cn(
+                      "text-sm font-medium transition-all duration-300 px-3 py-2 rounded-md relative block nav-item-hover",
+                      isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground",
+                    )}
                   >
-                    <Link
-                      href={item.href}
-                      onClick={(e) => scrollToSection(e, item.href)}
-                      className={cn(
-                        "text-sm font-medium transition-colors px-3 py-2 rounded-md relative block",
-                        isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground",
-                      )}
-                    >
-                      {item.name}
-                      {isActive && (
-                        <motion.div
-                          className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                          layoutId="underline"
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        />
-                      )}
-                    </Link>
-                  </motion.div>
-
-                  <motion.div
-                    className="absolute inset-0"
-                    variants={backVariants}
-                    transition={sharedTransition}
-                    style={{ transformStyle: "preserve-3d", transformOrigin: "center top", rotateX: 90 }}
-                  >
-                    <Link
-                      href={item.href}
-                      onClick={(e) => scrollToSection(e, item.href)}
-                      className={cn(
-                        "text-sm font-medium transition-colors px-3 py-2 rounded-md relative block",
-                        isActive ? "text-primary font-semibold" : "text-muted-foreground hover:text-foreground",
-                      )}
-                    >
-                      {item.name}
-                    </Link>
-                  </motion.div>
+                    {item.name}
+                    {isActive && (
+                      <motion.div
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                        layoutId="underline"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                  </Link>
                 </motion.div>
               )
             })}

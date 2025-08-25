@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 20% 98%;
     --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
+    --card: 210 20% 98%;
     --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
+    --popover: 210 20% 98%;
     --popover-foreground: 240 10% 3.9%;
     --primary: 200 100% 50%;
     --primary-foreground: 0 0% 100%;
@@ -54,8 +54,12 @@
 @layer base {
   * {
     @apply border-border;
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, opacity 0.3s
-      ease;
+    transition:
+      color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   body {
     @apply bg-background text-foreground;
@@ -197,6 +201,29 @@
 
 .nav-item.active::after {
   width: 100%;
+}
+
+.nav-item-hover {
+  @apply relative transition-all duration-300 ease-out;
+}
+
+.nav-item-hover::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(45deg, transparent, rgba(14, 165, 233, 0.1), transparent);
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.nav-item-hover:hover::before {
+  opacity: 1;
+}
+
+.nav-item-hover:hover {
+  transform: translateY(-1px);
 }
 
 html {
