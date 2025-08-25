@@ -1,3 +1,5 @@
+"use client"
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,14 +11,14 @@ export default function Contact() {
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: "Email",
-      value: "t3w4e0rdaf6f@opayq.com",
-      link: "mailto:t3w4e0rdaf6f@opayq.com",
+      value: "kingsley.aremu@gmail.com",
+      link: "mailto:kingsley.aremu@gmail.com",
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
       title: "Location",
-      value: "Kathmandu, Nepal",
-      link: "https://maps.google.com/?q=Kathmandu,Nepal",
+      value: "Lagos, Nigeria",
+      link: "https://maps.google.com/?q=Lagos,Nigeria",
     },
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
@@ -42,7 +44,7 @@ export default function Contact() {
               <div className="lg:col-span-2">
                 <Card>
                   <CardContent className="p-6">
-                    <form action="https://formspree.io/f/xanoenzo" method="POST" className="space-y-6">
+                    <form action="https://formspree.io/f/mqadzgkp" method="POST" className="space-y-6">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <label htmlFor="name" className="text-sm font-medium">
@@ -118,7 +120,7 @@ export default function Contact() {
                     <p className="text-sm text-muted-foreground mb-4">Find me on these platforms</p>
                     <div className="flex gap-4">
                       <Button variant="outline" size="icon" asChild>
-                        <a href="https://github.com/maskeynihal" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/iice257" target="_blank" rel="noopener noreferrer">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -138,7 +140,7 @@ export default function Contact() {
                         </a>
                       </Button>
                       <Button variant="outline" size="icon" asChild>
-                        <a href="https://linkedin.com/in/maskeynihal" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/kingsley-aremu" target="_blank" rel="noopener noreferrer">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -159,7 +161,27 @@ export default function Contact() {
                         </a>
                       </Button>
                       <Button variant="outline" size="icon" asChild>
-                        <a href="mailto:t3w4e0rdaf6f@opayq.com">
+                        <a href="https://x.com/kingsley_aremu" target="_blank" rel="noopener noreferrer">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="h-5 w-5"
+                          >
+                            <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
+                            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
+                          </svg>
+                          <span className="sr-only">X (Twitter)</span>
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="icon" asChild>
+                        <a href="mailto:kingsley.aremu@gmail.com">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="24"
@@ -182,6 +204,16 @@ export default function Contact() {
                   </CardContent>
                 </Card>
               </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <Button
+                variant="ghost"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                className="text-muted-foreground hover:text-foreground"
+              >
+                Back to Top
+              </Button>
             </div>
           </div>
         </div>
