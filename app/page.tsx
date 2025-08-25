@@ -8,9 +8,9 @@ import Contact from "@/components/contact"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Nihal Maskey | Senior Software Engineer",
+  title: "Kingsley Aremu",
   description:
-    "Portfolio of Nihal Maskey, a Senior Software Engineer specializing in JavaScript, TypeScript, React.js, Node.js, Laravel, and AWS.",
+    "Portfolio of Kingsley Aremu, a React (Native) Web and Mobile App Developer specializing in JavaScript, TypeScript, React.js and React Native, Node.js, and SwiftUI.",
 }
 
 export default function Home() {

@@ -11,19 +11,19 @@ export default function Hero() {
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              Hi, I&apos;m <span className="gradient-text">Nihal Maskey</span>
+              Hi, I&apos;m <span className="gradient-text">Kingsley Aremu</span>
             </h1>
             <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
               <span className="js-only">
-                <span>Senior Software Engineer</span>
+                <span>React Developer</span>
               </span>
               <noscript>
-                <span>Senior Software Engineer | Full Stack Developer | JavaScript Expert | AWS Specialist</span>
+                <span>React / React Native Developer | Web & Mobile Apps | JavaScript & Modern Frontend UI</span>
               </noscript>
             </p>
           </div>
           <div className="max-w-[700px] text-muted-foreground">
-            <p className="text-lg">Building scalable, secure, and efficient systems with over 5 years of experience</p>
+            <p className="text-lg">3+ years building sleek web & mobile apps with React, React Native, and modern frontend tools. Creating scalable digital products.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Button asChild size="lg" className="rounded-full">
@@ -37,19 +37,19 @@ export default function Hero() {
           </div>
           <div className="flex gap-4 mt-6">
             <Button variant="ghost" size="icon" asChild>
-              <Link href="https://github.com/maskeynihal" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/iice257" target="_blank" rel="noopener noreferrer">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <Link href="https://linkedin.com/in/maskeynihal" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/kingsley-aremu" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <Link href="mailto:t3w4e0rdaf6f@opayq.com">
+              <Link href="mailto:kingsley.aremu@gmail.com">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>

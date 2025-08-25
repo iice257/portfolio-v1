@@ -24,7 +24,7 @@ export default function OpenSource() {
       description:
         "Contributed to DigitalOcean's open-source NGINX configuration generator, which helps users create optimized NGINX server configurations.",
       tags: ["NGINX", "JavaScript", "DevOps", "Configuration"],
-      link: "https://github.com/digitalocean/nginxconfig.io/commits?author=maskeynihal",
+      link: "https://github.com/digitalocean/nginxconfig.io/commits?author=kingsleyaremu",
     },
   ]
 
