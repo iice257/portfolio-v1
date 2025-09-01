@@ -95,7 +95,7 @@ export default function Experience() {
           <div className="space-y-8 mt-12">
             {experiences.map((experience, index) => (
               <div key={index} className="timeline-item">
-                <Card className="border-l-4 border-l-primary transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:border-l-primary/80">
+                <Card className="border-l-4 border-l-primary transition-all duration-300 hover:shadow-lg">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
