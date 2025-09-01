@@ -7,30 +7,6 @@ import OpenSource from "./open-source"
 export default function Projects() {
   const projects = [
     {
-      title: "PowerGRD",
-      description:
-        "Personal project focused on power grid management and monitoring solutions with real-time data visualization.",
-      tags: ["React", "Node.js", "Real-time Data"],
-      codeLink: "https://github.com/maskeynihal/powergrd",
-      liveLink: null,
-    },
-    {
-      title: "W3Pets",
-      description:
-        "Startup project - A comprehensive pet management platform connecting pet owners with veterinary services and care providers.",
-      tags: ["React Native", "AWS", "Healthcare"],
-      codeLink: "https://github.com/maskeynihal/w3pets",
-      liveLink: null,
-    },
-    {
-      title: "StreakMate",
-      description:
-        "Personal habit tracking application that helps users build and maintain daily streaks with gamification elements.",
-      tags: ["React", "Firebase", "Gamification"],
-      codeLink: "https://github.com/maskeynihal/streakmate",
-      liveLink: null,
-    },
-    {
       title: "Pacman",
       description:
         "A recreation of the classic Pacman game with vanilla JavaScript, implementing various path-finding algorithms for ghost movement.",
@@ -67,7 +43,7 @@ export default function Projects() {
       <div className="container px-4 md:px-6 mx-auto">
         <div className="space-y-12">
           <div className="space-y-4 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Selected Projects</h2>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Projects</h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               A selection of my personal and professional projects
             </p>

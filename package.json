@@ -32,7 +32,6 @@
     "next-themes": "latest",
     "react": "^19",
     "react-dom": "^19",
-    "react-icons": "latest",
     "react-type-animation": "^3.2.0",
     "svelte": "latest",
     "tailwind-merge": "^2.5.5",

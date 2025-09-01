@@ -1,5 +1,3 @@
-"use client"
-
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -161,26 +159,6 @@ export default function Contact() {
                         </a>
                       </Button>
                       <Button variant="outline" size="icon" asChild>
-                        <a href="https://x.com/kingsley_aremu" target="_blank" rel="noopener noreferrer">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="h-5 w-5"
-                          >
-                            <path d="M4 4l11.733 16h4.267l-11.733 -16z"></path>
-                            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path>
-                          </svg>
-                          <span className="sr-only">X (Twitter)</span>
-                        </a>
-                      </Button>
-                      <Button variant="outline" size="icon" asChild>
                         <a href="mailto:kingsley.aremu@gmail.com">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -204,16 +182,6 @@ export default function Contact() {
                   </CardContent>
                 </Card>
               </div>
-            </div>
-
-            <div className="text-center mt-12">
-              <Button
-                variant="ghost"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="text-muted-foreground hover:text-foreground"
-              >
-                Back to Top
-              </Button>
             </div>
           </div>
         </div>
