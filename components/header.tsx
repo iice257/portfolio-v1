@@ -10,15 +10,17 @@ import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
+
 
 // Updated nav items - removed Skills as it's now part of Experience
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
   { name: "Projects", href: "#projects" },
   { name: "Education", href: "#education" },
-  { name: "Blog", href: "#blog" },
   { name: "Contact Me", href: "#contact" },
 ]
 
@@ -45,7 +47,7 @@ export default function Header() {
           // Map to the closest navbar item if it's not in the navbar
           const sectionId = allSections[i]
           if (sectionId === "open-source") return "projects"
-          if (sectionId === "skills") return "experience"
+          //if (sectionId === "skills") return "experience"
           if (!sections.includes(sectionId)) return "home"
           return sectionId
         }
@@ -93,15 +95,25 @@ export default function Header() {
     >
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
-          <motion.div
+        <motion.div
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="text-2xl font-bold gradient-text">KA</span>
-          </motion.div>
+          <Button variant="ghost" size="icon" asChild>
+            <Link href="/" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/favicon.ico"
+                alt="Home"
+                width={20}
+                height={20}
+                className="h-10 w-10"
+              />
+            </Link>
+          </Button>
+        </motion.div>
         </Link>
 
         {/* Desktop Navigation */}

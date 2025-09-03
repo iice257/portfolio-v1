@@ -5,80 +5,54 @@ import Skills from "./skills-content"
 export default function Experience() {
   const experiences = [
     {
-      title: "Lead Engineer",
-      company: "Leapfrog Technology / Trayt Health",
-      period: "Jan 2025 - Present",
-      location: "Kathmandu, Nepal",
-      achievements: [
-        "Leading the engineering team in developing innovative healthcare solutions for Trayt Health",
-        "Architecting scalable and secure systems for handling sensitive healthcare data",
-        "Implementing advanced AWS infrastructure for high availability and compliance",
-        "Mentoring junior engineers and establishing best practices for code quality and security",
-        "Collaborating with product and design teams to deliver exceptional user experiences",
-      ],
-    },
-    {
-      title: "Senior Software Engineer",
-      company: "Leapfrog Technology / Trayt Health",
-      period: "July 2023 - Jan 2025",
-      location: "Kathmandu, Nepal",
-      achievements: [
-        "Coordinated development efforts with remote teams across the US, Australia, and Nepal to deliver complex healthcare solutions for Trayt Health",
-        "Reduced the frontend bundle size by 20% through advanced optimization techniques",
-        "Optimized backend API performance, achieving over 200% faster response times",
-        "Leveraged AWS services (SQS, EventBridge, Lambda, Step Functions) to automate critical tasks",
-        "Mentored and coached team members, accelerating onboarding and enhancing team productivity",
-      ],
-    },
-    {
-      title: "Software Engineer",
-      company: "Leapfrog Technology",
-      period: "Sep 2021 - July 2023",
-      location: "Kathmandu, Nepal",
-      achievements: [
-        "Led and managed a diverse software development team comprising over 15 members",
-        "Designed and implemented solutions that consistently exceeded performance benchmarks",
-        "Streamlined project planning by working closely with product owners",
-        "Orchestrated the successful release of major application versions",
-        "Emerged as the primary point of contact for both project stakeholders and management",
-      ],
-    },
-    {
-      title: "Associate Software Engineer",
-      company: "Leapfrog Technology",
-      period: "Sep 2020 - Sep 2021",
-      location: "Kathmandu, Nepal",
-      achievements: [
-        "Collaborated with senior developers and product owners to deliver high-quality applications",
-        "Employed a meticulous approach to debugging code and identifying root causes of issues",
-        "Contributed to system improvement efforts by conducting thorough system analysis",
-        "Played a pivotal role in enhancing system performance through strategic optimization",
-        "Innovatively designed and developed a browser extension, streamlining workflow processes",
-      ],
-    },
-    {
-      title: "Software Engineer Intern",
-      company: "Leapfrog Technology",
-      period: "Jun 2020 - Sep 2020",
-      location: "Kathmandu, Nepal",
-      achievements: [
-        "Acquired proficiency in JavaScript and harnessed the browser canvas API",
-        "Recreated Pac-man game with vanilla JS while integrating various path-finding algorithms",
-        "Successfully delved into backend development with Node.js and honed frontend skills with React.js",
-      ],
-    },
-    {
-      title: "Web Application Developer",
-      company: "Technorio Inc.",
-      period: "Jan 2019 - Jun 2020",
-      location: "Kathmandu, Nepal",
-      achievements: [
-        "Delivered projects across diverse industries, including insurance management, video streaming, and ticket management",
-        "Collaborated closely with the business development team, offering engineering insights",
-        "Utilized GitHub actions to automate deployment pipelines",
-        "Applied server deployment expertise to successfully launch a range of web applications",
-      ],
-    },
+  title: "Founder & Full-Stack Developer",
+  company: "PowerGrid (Self-built Product)",
+  period: "2023 – Present",
+  location: "Remote, Nigeria",
+  achievements: [
+    "Spearheading design and development of PowerGrid, a utility-tracking platform inspired by modern apps like Uber and Bolt",
+    "Built frontend with Vue.js and Vuetify, and backend with FastAPI for scalable performance",
+    "Integrated Leaflet for interactive map-based UI, with sleek dark mode interface",
+    "Designed complete user flow covering onboarding, stats, rewards system, and notifications",
+    "Balancing product development with branding, UI/UX, and roadmap planning as a solo developer",
+  ],
+},
+{
+  title: "Freelance Web Developer",
+  company: "Self-Employed",
+  period: "2022 - Present",
+  location: "Remote, Nigeria",
+  achievements: [
+    "Delivered 20+ websites across industries including crypto, NGOs, real estate, and religious organizations",
+    "Built scalable web apps using Wix Studio, custom HTML/CSS/JS, and backend functionality with Wix Velo",
+    "Developed NFT platforms with advanced features such as referral systems, rewards, and live databases",
+    "Led redesign and long-term maintenance for GamblePause.com, an NGO site with functionalities comparable to GambleAware",
+    "Implemented user-focused designs with performance optimizations, responsive layouts, and clean UI",
+  ],
+},
+{
+  title: "Software Engineer (Pre-Launch Startup)",
+  company: "Confidential Startup",
+  period: "2025 - Present",
+  location: "Remote",
+  achievements: [
+    "Contributing to the early-stage architecture and core product features",
+    "Collaborating with product and design teams to shape scalable systems before launch",
+    "Applying full-stack skills to balance frontend experience with backend performance",
+  ],
+},
+{
+  title: "Information Technology Attendant",
+  company: "Nestlé Nigeria",
+  period: "2025",
+  location: "Nigeria",
+  achievements: [
+    "Supported IT systems during industrial training program",
+    "Documented technical processes and gained hands-on industry exposure",
+    "Learned professional workflow practices in a multinational corporate environment",
+  ],
+},
+
   ]
 
   return (
@@ -121,11 +95,6 @@ export default function Experience() {
                 </Card>
               </div>
             ))}
-          </div>
-
-          {/* Skills Section */}
-          <div className="mt-20" id="skills">
-            <Skills />
           </div>
         </div>
       </div>

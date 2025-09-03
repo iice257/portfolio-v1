@@ -3,26 +3,31 @@ import { Badge } from "@/components/ui/badge"
 
 export default function Skills() {
   const skillCategories = [
-    {
-      category: "Frontend",
-      skills: ["JavaScript", "TypeScript", "React.js", "HTML/CSS", "Tailwind CSS"],
-    },
-    {
-      category: "Backend",
-      skills: ["Node.js", "PHP", "Laravel", "Express.js", "RESTful APIs"],
-    },
-    {
-      category: "Database",
-      skills: ["MySQL", "PostgreSQL", "DynamoDB", "MongoDB", "Redis"],
-    },
-    {
-      category: "Cloud & DevOps",
-      skills: ["AWS", "GitHub Actions", "Travis-CI", "Docker", "CI/CD"],
-    },
-    {
-      category: "Tools & Methodologies",
-      skills: ["Git", "Agile", "Scrum", "JIRA", "Figma"],
-    },
+   {
+  category: "Frontend Development",
+  skills: ["JavaScript", "TypeScript", "React.js", "React Native", "HTML/CSS", "Tailwind CSS", "Sass/SCSS", "Python"],
+},
+{
+  category: "Backend Development",
+  skills: ["Node.js", "FastAPI", "Express.js", "PHP", "Laravel", "RESTful APIs", "C#/ASP.NET"],
+},
+{
+  category: "Databases & Storage",
+  skills: ["MySQL", "PostgreSQL", "MongoDB", "Redis", "DynamoDB"],
+},
+{
+  category: "Cloud & DevOps",
+  skills: ["AWS", "Docker", "CI/CD", "GitHub Actions", "Vercel", "Netlify"],
+},
+{
+  category: "Collaboration & Design",
+  skills: ["Git & GitHub", "Agile/Scrum", "JIRA", "Figma", "UX/UI Design", "Leadership & Mentoring", "Branding & Design"],
+},
+{
+  category: "Other",
+  skills: [
+    "Creativity & Attention to Detail", "Problem-Solving", "Scalability & Optimization"],
+},
   ]
 
   return (
@@ -52,7 +57,7 @@ export default function Skills() {
                   </CardContent>
                 </Card>
               </div>
-            ))}
+            ))}                                                                                                                                               
           </div>
         </div>
       </div>
