@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 199 30% 90%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 11 76% 80%;
+    --primary: 199 89% 48%;
     --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -22,8 +22,8 @@
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 11 76% 80%;
-    --radius: 0.5rem;
+    --ring: 199 89% 48%;
+    --radius: .6rem;
     --font-mono:
       "Geist Mono", ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
@@ -35,7 +35,7 @@
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 9%;
     --popover-foreground: 0 0% 95%;
-    --primary: 11 76% 80%;
+    --primary: 199 89% 48%;
     --primary-foreground: 355.7 100% 97.3%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -47,7 +47,7 @@
     --destructive-foreground: 0 85.7% 97.3%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 11 76% 80%;
+    --ring: 199 89% 48%;
   }
 }
 
@@ -241,3 +241,42 @@ header.scrolled {
   background-color: rgba(0, 0, 0, 0.7);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+/* Card glow effect 
+.card {
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}*/
+
+/* Add this new CSS class to handle the glow effect */
+/*.card-glow {
+  position: relative;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-glow::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  background: radial-gradient(circle, hsl(var(--primary) / 60%) 0%, transparent 70%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.card-glow:hover::before {
+  opacity: 0.5;
+}
+
+.dark .card-glow::before {
+  background: radial-gradient(circle, hsl(var(--primary) / 80%) 0%, transparent 70%);
+} */

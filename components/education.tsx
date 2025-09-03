@@ -21,15 +21,16 @@ export default function Education() {
                     <GraduationCap className="h-8 w-8 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold">Bachelor of Engineering: Computer Engineering</h3>
-                    <p className="text-muted-foreground">Kantipur Engineering College (2021)</p>
+                    <h3 className="text-xl font-bold">Bachelor of Engineering: Electrical and Electronic Engineering</h3>
+                    <p className="text-muted-foreground">Ladoke Akintola University of Technology (2019 – 2024)</p>
                   </div>
                 </div>
-                <div className="p-6">
+                  <div className="p-6">
                   <p className="text-muted-foreground">
-                    Completed a comprehensive computer engineering program with a focus on software development,
-                    algorithms, data structures, and system design. Gained a strong foundation in computer science
-                    principles and engineering practices that have been instrumental in my professional career.
+                      Completed a rigorous engineering program with strong emphasis on problem-solving, systems thinking, and applied technology. 
+                      Built a foundation in circuit design, control systems, and computer programming, while independently pursuing web development 
+                      and software engineering. This combination of formal engineering training and self-driven coding practice shaped my approach 
+                      to building scalable, user-focused software solutions.
                   </p>
                 </div>
               </CardContent>
