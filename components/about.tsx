@@ -8,22 +8,22 @@ export default function About() {
     {
       icon: <Code2 className="h-10 w-10 text-primary" />,
       title: "Web & Mobile Development",
-      description: "Hands-on experience building responsive, user-friendly apps with React, React Native, and modern JavaScript.",
+      description: "I've got hands-on experience building responsive, user-friendly apps with React, React Native, and modern JavaScript.",
     },
     {
       icon: <Server className="h-10 w-10 text-primary" />,
       title: "UI/UX Implementation",
-      description: "Strong focus on clean layouts, accessibility, and smooth interactions that feel intuitive on both web and mobile.",
+      description: "I have a strong focus on clean layouts, accessibility, and smooth interactions that feel intuitive on both web and mobile.",
     },
     {
       icon: <Users className="h-10 w-10 text-primary" />,
       title: "Freelance & Client Work",
-      description: "Delivered custom websites for brands, startups, and organizations, balancing technical needs with creative direction.",
+      description: "I deliver custom websites for brands, startups, and organizations, balancing technical needs with creative direction.",
     },
     {
       icon: <Globe className="h-10 w-10 text-primary" />,
       title: "Full-Stack Integration",
-      description: "Capable of delivering complete end-to-end solutions, connecting frontend, backend, and deployment into seamless products.",
+      description: "I am capable of delivering complete end-to-end solutions, connecting frontend, backend, and deployment into seamless products.",
     },
   ]
 
@@ -52,7 +52,7 @@ export default function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
               {features.map((feature, index) => (
                 <div key={index} className="animate-in">
-                  <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50">
+                  <Card className="h-full transition-all duration-300 hover:shadow-lg border-2 hover:border-primary/50">
                     <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                       <div className="p-2 rounded-full bg-primary/10">{feature.icon}</div>
                       <h3 className="text-xl font-bold">{feature.title}</h3>
