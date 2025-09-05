@@ -51,9 +51,9 @@ export default function NoScriptStyles() {
         }
         
         /* Hide animated background */
-        .animated-background {
+       /* .animated-background {
           display: none;
-        }
+        }*/
       `,
         }}
       />

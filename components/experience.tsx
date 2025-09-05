@@ -1,57 +1,58 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Skills from "./skills-content"
+import { title } from "process"
 
 export default function Experience() {
   const experiences = [
     {
-  title: "Founder & Full-Stack Developer",
-  company: "PowerGrid (Self-built Product)",
-  period: "2023 – Present",
-  location: "Remote, Nigeria",
-  achievements: [
-    "Spearheading design and development of PowerGrid, a utility-tracking platform inspired by modern apps like Uber and Bolt",
-    "Built frontend with Vue.js and Vuetify, and backend with FastAPI for scalable performance",
-    "Integrated Leaflet for interactive map-based UI, with sleek dark mode interface",
-    "Designed complete user flow covering onboarding, stats, rewards system, and notifications",
-    "Balancing product development with branding, UI/UX, and roadmap planning as a solo developer",
-  ],
-},
-{
-  title: "Freelance Web Developer",
-  company: "Self-Employed",
-  period: "2022 - Present",
-  location: "Remote, Nigeria",
-  achievements: [
-    "Delivered 20+ websites across industries including crypto, NGOs, real estate, and religious organizations",
-    "Built scalable web apps using Wix Studio, custom HTML/CSS/JS, and backend functionality with Wix Velo",
-    "Developed NFT platforms with advanced features such as referral systems, rewards, and live databases",
-    "Led redesign and long-term maintenance for GamblePause.com, an NGO site with functionalities comparable to GambleAware",
-    "Implemented user-focused designs with performance optimizations, responsive layouts, and clean UI",
-  ],
-},
-{
-  title: "Software Engineer (Pre-Launch Startup)",
-  company: "Confidential Startup",
-  period: "2025 - Present",
-  location: "Remote",
-  achievements: [
-    "Contributing to the early-stage architecture and core product features",
-    "Collaborating with product and design teams to shape scalable systems before launch",
-    "Applying full-stack skills to balance frontend experience with backend performance",
-  ],
-},
-{
-  title: "Information Technology Attendant",
-  company: "Nestlé Nigeria",
-  period: "2025",
-  location: "Nigeria",
-  achievements: [
-    "Supported IT systems during industrial training program",
-    "Documented technical processes and gained hands-on industry exposure",
-    "Learned professional workflow practices in a multinational corporate environment",
-  ],
-},
+    title: "Information Technology Attendant",
+    company: "Nestlé Nigeria",
+    period: "2025",
+    type: "Full-time",
+    achievements: [
+      "Supported IT systems during industrial training program",
+      "Documented technical processes and gained hands-on industry exposure",
+      "Learned professional workflow practices in a multinational corporate environment",
+    ],
+  },
+  {
+    title: "Software Engineer (Pre-Launch Startup)",
+    company: "Confidential Startup",
+    period: "2025 - Present",
+    type: "Remote",
+    achievements: [
+      "Contributing to the early-stage architecture and core product features",
+      "Collaborating with product and design teams to shape scalable systems before launch",
+      "Applying full-stack skills to balance frontend experience with backend performance",
+    ],
+  },
+      {
+    title: "Founder & Full-Stack Developer",
+    company: "PowerGrid (Self-built Product)",
+    period: "2023 - Present",
+    type: "Remote",
+    achievements: [
+      "Spearheading design and development of PowerGrid, a utility-tracking platform inspired by modern apps like Uber and Bolt",
+      "Built frontend with Vue.js and Vuetify, and backend with FastAPI for scalable performance",
+      "Integrated Leaflet for interactive map-based UI, with sleek dark mode interface",
+      "Designed complete user flow covering onboarding, stats, rewards system, and notifications",
+      "Balancing product development with branding, UI/UX, and roadmap planning as a solo developer",
+    ],
+  },
+  {
+    title: "Freelance Web Developer",
+    company: "Self-Employed",
+    period: "2022 - Present",
+    type: "Remote",
+    achievements: [
+      "Delivered 20+ websites across industries including crypto, NGOs, real estate, and religious organizations",
+      "Built scalable web apps using Wix Studio, custom HTML/CSS/JS, and backend functionality with Wix Velo",
+      "Developed NFT platforms with advanced features such as referral systems, rewards, and live databases",
+      "Led redesign and long-term maintenance for GamblePause.com, an NGO site with functionalities comparable to GambleAware",
+      "Implemented user-focused designs with performance optimizations, responsive layouts, and clean UI",
+    ],
+  },
 
   ]
 
@@ -69,7 +70,7 @@ export default function Experience() {
           <div className="space-y-8 mt-12">
             {experiences.map((experience, index) => (
               <div key={index} className="timeline-item">
-                <Card className="border-l-4 border-l-primary transition-all duration-300 hover:shadow-lg">
+                <Card className="border-l-4 border-l-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-sky-500/10">
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
@@ -80,7 +81,7 @@ export default function Experience() {
                         <Badge variant="outline" className="mb-1 md:mb-0">
                           {experience.period}
                         </Badge>
-                        <span className="text-sm text-muted-foreground">{experience.location}</span>
+                        <span className="text-sm text-muted-foreground">{experience.type}</span>
                       </div>
                     </div>
                     <ul className="mt-4 space-y-2">

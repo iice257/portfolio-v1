@@ -105,7 +105,7 @@
 }
 
 .skill-card {
-  @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10;
 }
 
 .animated-background {
@@ -150,9 +150,8 @@
   left: 20%;
 }
 
-/* Project card styles - updated without images */
 .project-card {
-  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+    @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10;
 }
 
 .project-content {
@@ -171,7 +170,6 @@
   @apply flex gap-2;
 }
 
-/* Navigation animations */
 .nav-item {
   position: relative;
   transition: all 0.3s ease;
@@ -196,12 +194,10 @@
   width: 100%;
 }
 
-/* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
 }
 
-/* Enhanced timeline animations */
 .timeline-item {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -219,7 +215,6 @@ html {
   background-color: hsl(var(--primary) / 80%);
 }
 
-/* Ensure header is sticky */
 header {
   position: fixed;
   top: 0;
@@ -230,7 +225,6 @@ header {
   transition: all 0.3s ease;
 }
 
-/* Glassmorphism effect for header */
 header.scrolled {
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
@@ -242,14 +236,9 @@ header.scrolled {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Card glow effect 
 .card {
-  transition: box-shadow 0.3s ease;
+  @apply transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-500/10;
 }
-
-.card:hover {
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-}*/
 
 /* Add this new CSS class to handle the glow effect */
 /*.card-glow {
