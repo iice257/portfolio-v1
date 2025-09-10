@@ -11,11 +11,11 @@ export default function Hero() {
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
-              Hi, I&apos;m <span className="gradient-text">Kingsley Aremu</span>
+              Kingsley Aremu
             </h1>
             <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
               <span className="js-only">
-                <span>React Developer</span>
+                <span className="gradient-text">React Developer</span>
               </span>
               <noscript>
                 <span>React / React Native Developer | Web & Mobile Apps | JavaScript & Modern Frontend UI</span>
@@ -30,8 +30,8 @@ export default function Hero() {
               <Link href="#contact">Get In Touch</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href="@/components/resume.pdf" target="_blank" rel="noopener noreferrer">
-                <Download className="mr-2 h-4 w-4" /> Download Resume
+              <a href="/KingsleyAremuResumé.pdf" download>
+                <Download className="mr-2 h-4 w-4" /> Download
               </a>
             </Button>
           </div>
@@ -56,7 +56,7 @@ export default function Hero() {
             </Button>
           </div>
         </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:block js-only">
+        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 hidden md:block js-only animate-pulse">
           <Link
             href="#"
             onClick={(e) => {
@@ -64,7 +64,7 @@ export default function Hero() {
               window.scrollTo({ top: 0, behavior: "smooth" })
             }}
           >
-            <ArrowUpCircle className="h-10 w-10 text-primary animate-bounce" />
+            <ArrowUpCircle className="h-10 w-10 text-primary" />
           </Link>
         </div>
       </div>

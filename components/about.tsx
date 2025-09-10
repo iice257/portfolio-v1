@@ -1,28 +1,29 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code2, Globe, Server, Users } from "lucide-react"
+import Skills from "./skills"
 import { FaReact } from "react-icons/fa"
 
 export default function About() {
   const features = [
     {
       icon: <Code2 className="h-10 w-10 text-primary" />,
-      title: "Full Stack Development",
-      description: "Expertise in JavaScript, TypeScript, React.js, Node.js, and modern frontend tools",
+      title: "Web & Mobile Development",
+      description: "I've got hands-on experience building responsive, user-friendly apps with React, React Native, and modern JavaScript.",
     },
     {
       icon: <Server className="h-10 w-10 text-primary" />,
-      title: "Mobile Development",
-      description: "Building responsive applications with React Native and cross-platform solutions",
+      title: "UI/UX Implementation",
+      description: "I have a strong focus on clean layouts, accessibility, and smooth interactions that feel intuitive on both web and mobile.",
     },
     {
       icon: <Users className="h-10 w-10 text-primary" />,
-      title: "Problem Solving",
-      description: "IT support background providing practical problem-solving mindset for real user needs",
+      title: "Freelance & Client Work",
+      description: "I deliver custom websites for brands, startups, and organizations, balancing technical needs with creative direction.",
     },
     {
       icon: <Globe className="h-10 w-10 text-primary" />,
-      title: "Modern Technologies",
-      description: "Continuously learning and experimenting with cutting-edge web and mobile technologies",
+      title: "Full-Stack Integration",
+      description: "I am capable of delivering complete end-to-end solutions, connecting frontend, backend, and deployment into seamless products.",
     },
   ]
 
@@ -37,32 +38,21 @@ export default function About() {
                 <FaReact className="h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
                 React Developer
               </p>
+              <p className="container mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-justify">
+                Web and mobile developer with hands-on experience building modern applications using React, React Native, and JavaScript and delivering responsive, user-focused products.
+              </p>
             </div>
 
-            <div className="mx-auto max-w-3xl text-center space-y-6">
-              <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                Web and mobile developer with hands-on experience building modern applications using React, React
-                Native, and JavaScript. Skilled in creating responsive, user-focused digital products and continuously
-                growing toward full-stack expertise with Node.js and modern frontend tools.
-              </p>
-
-              <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                I enjoy turning ideas into scalable solutions, whether designing sleek interfaces, optimizing app
-                performance, or experimenting with new technologies. Alongside development, I bring a background in IT
-                support, which gives me a practical problem-solving mindset and the ability to bridge technical
-                challenges with real user needs.
-              </p>
-
-              <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed">
-                Passionate about clean design, efficiency, and continuous learning, I'm focused on building impactful
-                digital experiences and sharpening my expertise in web and app development.
+            <div className="space-y-4 text-center">
+              <p className="container mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-justify">
+                I enjoy turning ideas into scalable solutions, whether designing sleek interfaces, optimizing app performance, or experimenting with new technologies. Alongside development, I bring a background in IT support, which gives me a practical problem-solving mindset and the ability to bridge challenges with real user needs. I'm focused on clean design, efficiency, and continuous learning as well as building impactful digital experiences and sharpening my expertise in web and app development.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
               {features.map((feature, index) => (
                 <div key={index} className="animate-in">
-                  <Card className="h-full transition-all duration-300 hover:shadow-lg hover:border-primary/50">
+                  <Card className="h-full transition-all duration-300 hover:shadow-lg border-2 hover:border-primary/50">
                     <CardContent className="p-6 flex flex-col items-center text-center space-y-4">
                       <div className="p-2 rounded-full bg-primary/10">{feature.icon}</div>
                       <h3 className="text-xl font-bold">{feature.title}</h3>
@@ -70,8 +60,11 @@ export default function About() {
                     </CardContent>
                   </Card>
                 </div>
-              ))}
+              ))} 
             </div>
+          </div>
+           <div className="mt-20" id="skills">
+            <Skills />
           </div>
         </div>
       </section>
