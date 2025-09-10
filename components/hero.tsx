@@ -31,7 +31,7 @@ export default function Hero() {
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
               <a href="/KingsleyAremuResumé.pdf" download>
-                <Download className="mr-2 h-4 w-4" /> Download Resumé
+                <Download className="mr-2 h-4 w-4" /> Download
               </a>
             </Button>
           </div>
