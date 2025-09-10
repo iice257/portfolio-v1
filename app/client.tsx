@@ -36,7 +36,7 @@ export default function ClientLayout({
         `}</style>
       </head>
       <body className={cn("min-h-screen bg-background font-mono antialiased", fontSans.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} disableTransitionOnChange={false}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col overflow-hidden">
             <noscript>
               <div className="bg-yellow-100 dark:bg-yellow-900 p-4 text-center text-sm">

@@ -10,14 +10,17 @@ import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 
+
+// Updated nav items - removed Skills as it's now part of Experience
 const navItems = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
-  { name: "Selected Projects", href: "#projects" },
+  //{ name: "Projects", href: "#projects" },
   { name: "Education", href: "#education" },
-  { name: "Blog", href: "#blog" },
   { name: "Contact Me", href: "#contact" },
 ]
 
@@ -44,7 +47,7 @@ export default function Header() {
           // Map to the closest navbar item if it's not in the navbar
           const sectionId = allSections[i]
           if (sectionId === "open-source") return "projects"
-          if (sectionId === "skills") return "experience"
+          //if (sectionId === "skills") return "experience"
           if (!sections.includes(sectionId)) return "home"
           return sectionId
         }
@@ -86,26 +89,39 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
-        scrolled ? "bg-background/70 backdrop-blur-lg shadow-sm border-b border-border/50" : "bg-transparent",
+        "fixed left-1/2 top-4 z-50 -translate-x-1/2",
+        "lg:max-w-7xl",
+        "rounded-full",
+        "transition-all duration-300",
+        scrolled ? "bg-background/70 backdrop-blur-lg shadow-sm border border-border/80" : "bg-transparent",
       )}
     >
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="text-2xl font-bold gradient-text">NM</span>
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+            <Button variant="ghost" size="icon" asChild className="items-center">
+              <Link href="/" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/favicon.ico"
+                  alt="Home"
+                  width={50}
+                  height={50}
+                  className="rounded-lg mt-2"
+                />
+              </Link>
+            </Button>
           </motion.div>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
-          <div className="relative flex space-x-4 items-center">
+        <nav className="hidden md:flex flex-grow justify-center">
+          <div className="relative flex space-x-6 items-center">
             {navItems.map((item, index) => {
               const isActive = activeSection === item.href.substring(1)
 
@@ -145,8 +161,18 @@ export default function Header() {
               )
             })}
           </div>
-          <ModeToggle />
         </nav>
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="hidden md:block items-center">
+              <ModeToggle />
+            </div>
+          </motion.div>
 
         {/* Mobile Navigation Toggle */}
         <div className="flex items-center md:hidden space-x-4">
