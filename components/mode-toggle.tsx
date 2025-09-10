@@ -28,7 +28,7 @@ export function ModeToggle() {
       onClick={handleToggle}
       className={clsx(
         "relative w-14 h-8 rounded-full flex items-center transition-colors duration-300",
-        isDarkMode ? "bg-gray-900" : "bg-primary"
+        isDarkMode ? "bg-primary/25" : "bg-primary"
       )}
     >
       {/* Knob */}

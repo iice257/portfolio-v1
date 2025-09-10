@@ -30,8 +30,8 @@ export default function Hero() {
               <Link href="#contact">Get In Touch</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href="/resume.pdf" download>
-                <Download className="mr-2 h-4 w-4" /> Download Resume
+              <a href="/KingsleyAremuResumé.pdf" download>
+                <Download className="mr-2 h-4 w-4" /> Download Resumé
               </a>
             </Button>
           </div>
