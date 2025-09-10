@@ -35,7 +35,7 @@ export default function About() {
             <div className="space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed flex items-center justify-center gap-2">
-                //<FaReact className="h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
+                <FaReact className="h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
                 React Developer
               </p>
               <p className="container mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-justify">
