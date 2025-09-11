@@ -16,8 +16,8 @@ export default function Hero() {
             </h1>
             <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
               <span className="js-only">
-                <span className="gradient-text items-center flex justify-center gap-2">
-                  <FaReact className="mt-2 h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
+                <span className="gradient-text flex items-center justify-center gap-2">
+                  <FaReact className="h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
                   React Developer
                 </span>
               </span>
@@ -59,17 +59,6 @@ export default function Hero() {
               </Link>
             </Button>
           </div>
-        </div>
-        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 hidden md:block js-only animate-pulse">
-          <Link
-            href="#"
-            onClick={(e) => {
-              e.preventDefault()
-              window.scrollTo({ top: 0, behavior: "smooth" })
-            }}
-          >
-            <ArrowUpCircle className="h-10 w-10 text-primary" />
-          </Link>
         </div>
       </div>
     </section>
