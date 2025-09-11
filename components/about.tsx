@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code2, Globe, Server, Users } from "lucide-react"
 import Skills from "./skills"
-import { FaReact } from "react-icons/fa"
 
 export default function About() {
   const features = [
@@ -34,10 +33,6 @@ export default function About() {
           <div className="space-y-12">
             <div className="space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed flex items-center justify-center gap-2">
-                <FaReact className="h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
-                React Developer
-              </p>
               <p className="container mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-justify">
                 Web and mobile developer with hands-on experience building modern applications using React, React Native, and JavaScript and delivering responsive, user-focused products.
               </p>
