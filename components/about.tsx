@@ -1,28 +1,29 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Code2, Globe, Server, Users } from "lucide-react"
 import Skills from "./skills"
+import { FaReact } from "react-icons/fa"
 
 export default function About() {
   const features = [
     {
       icon: <Code2 className="h-10 w-10 text-primary" />,
       title: "Web & Mobile Development",
-      description: "I've got hands-on experience building responsive, user-friendly apps with React, React Native, and modern JavaScript.",
+      description: "Hands-on experience building responsive, user-friendly apps with React, React Native, and modern JavaScript.",
     },
     {
       icon: <Server className="h-10 w-10 text-primary" />,
       title: "UI/UX Implementation",
-      description: "I have a strong focus on clean layouts, accessibility, and smooth interactions that feel intuitive on both web and mobile.",
+      description: "Strong focus on clean layouts, accessibility, and smooth interactions that feel intuitive on both web and mobile.",
     },
     {
       icon: <Users className="h-10 w-10 text-primary" />,
       title: "Freelance & Client Work",
-      description: "I deliver custom websites for brands, startups, and organizations, balancing technical needs with creative direction.",
+      description: "Delivering custom websites for brands, startups, and organizations, balancing technical needs with creative direction.",
     },
     {
       icon: <Globe className="h-10 w-10 text-primary" />,
       title: "Full-Stack Integration",
-      description: "I am capable of delivering complete end-to-end solutions, connecting frontend, backend, and deployment into seamless products.",
+      description: "Capable of delivering complete end-to-end solutions, connecting frontend, backend, and deployment into seamless products.",
     },
   ]
 
@@ -33,6 +34,10 @@ export default function About() {
           <div className="space-y-12">
             <div className="space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">About Me</h2>
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed flex items-center justify-center gap-2">
+                <FaReact className="h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
+                React Developer
+              </p>
               <p className="container mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed text-justify">
                 Web and mobile developer with hands-on experience building modern applications using React, React Native, and JavaScript and delivering responsive, user-focused products.
               </p>
