@@ -1,30 +1,39 @@
-# king's portfolio
-
-*Automatically synced with your [v0.app](https://v0.app) deployments*
-
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/iice257s-projects/v0-king-s-portfolio)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/KgExbJY6et6)
+# Kingsley Aremu's portfolio
 
 ## Overview
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+Portfolio website for Kingsley Aremu, a React (Native) Web and Mobile App Developer. The site showcases projects, open-source contributions, and professional experience.
 
-## Deployment
+## Features
+
+- Project showcase with code and live links
+- Open-source contributions section
+- Responsive design using Tailwind CSS
+- SEO and social meta tags (Open Graph, Twitter)
+- Built with Next.js and TypeScript
+
+## Stack
+- [Next.js](https://nextjs.org/)
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vercel](https://vercel.com/) (deployment)
+
+##Project URL
 
 Your project is live at:
 
-**[https://vercel.com/iice257s-projects/v0-king-s-portfolio](https://vercel.com/iice257s-projects/v0-king-s-portfolio)**
+**[https://kingsleyaremu.vercel.app](https://kingsleyaremu.vercel.app)**
 
-## Build your app
+## Contributing
 
-Continue building your app on:
+Feel free to fork the repository and submit pull requests for improvements or new features.
 
-**[https://v0.app/chat/projects/KgExbJY6et6](https://v0.app/chat/projects/KgExbJY6et6)**
+## License
 
-## How It Works
+[MIT](LICENSE)
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Credits
+
+Built and maintained by Kingsley Aremu.
+
