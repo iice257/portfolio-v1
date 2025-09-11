@@ -1,8 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowUpCircle, Download, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowUpCircle, Download, Github, Linkedin, Mail, ScrollText } from "lucide-react"
 import Link from "next/link"
+import { FaReact } from "react-icons/fa"
 
 export default function Hero() {
   return (
@@ -15,7 +16,10 @@ export default function Hero() {
             </h1>
             <p className="mx-auto max-w-[700px] text-xl text-muted-foreground md:text-2xl">
               <span className="js-only">
-                <span className="gradient-text">React Developer</span>
+                <span className="gradient-text items-center flex justify-center gap-2">
+                  <FaReact className="mt-2 h-6 w-6 text-primary animate-spin" style={{ animationDuration: "3s" }} />
+                  React Developer
+                </span>
               </span>
               <noscript>
                 <span>React / React Native Developer | Web & Mobile Apps | JavaScript & Modern Frontend UI</span>
@@ -30,8 +34,8 @@ export default function Hero() {
               <Link href="#contact">Get In Touch</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href="/KingsleyAremuResumé.pdf" download>
-                <Download className="mr-2 h-4 w-4" /> Download Resumé
+              <a href="/KingsleyAremuResumé.pdf" target="_blank" rel="noopener noreferrer">
+                <ScrollText className="mr-2 h-4 w-4" /> View Resumé
               </a>
             </Button>
           </div>
