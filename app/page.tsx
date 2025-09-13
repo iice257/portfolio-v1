@@ -5,7 +5,6 @@ import Projects from "@/components/projects"
 import Education from "@/components/education"
 import Contact from "@/components/contact"
 import type { Metadata } from "next"
-import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
   title: "Kingsley Aremu",
@@ -33,21 +32,11 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="w-full">
-      <AnimatedSection>
         <Hero />
-      </AnimatedSection>
-      <AnimatedSection>
         <About />
-      </AnimatedSection>
-      <AnimatedSection>
-        <Experience />
-      </AnimatedSection>
-      <AnimatedSection>
         <Education />
-      </AnimatedSection>
-      <AnimatedSection>
+        <Experience />
         <Contact />
-      </AnimatedSection>
     </div>
   )
 }
