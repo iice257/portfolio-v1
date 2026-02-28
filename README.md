@@ -1,8 +1,8 @@
-# Kingsley Aremu's portfolio
+# OLD - Kingsley Aremu's portfolio (2025)
 
 ## Overview
 
-Portfolio website for Kingsley Aremu, a React (Native) Web and Mobile App Developer. The site showcases projects, open-source contributions, and professional experience.
+Previous portfolio website for Kingsley Aremu, a React (Native) Web and Mobile App Developer. The site showcases projects, open-source contributions, and professional experience.
 
 ## Features
 
@@ -21,13 +21,13 @@ Portfolio website for Kingsley Aremu, a React (Native) Web and Mobile App Develo
 
 ##Project URL
 
-Your project is live at:
+Project is live at:
 
-**[https://kingsleyaremu.vercel.app](https://kingsleyaremu.vercel.app)**
+**[https://kingsleyaremu.vercel.app/v1](https://kingsleyaremu.vercel.app/v1)**
 
 ## Contributing
 
-Feel free to fork the repository and submit pull requests for improvements or new features.
+Feel free to fork the repository if you like the design, and submit pull requests for improvements or new features.
 
 ## License
 
