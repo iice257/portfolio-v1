@@ -23,7 +23,7 @@ Previous portfolio website for Kingsley Aremu, a React (Native) Web and Mobile A
 
 Project is live at:
 
-**[https://kingsleyaremu.vercel.app/v1](https://kingsleyaremu.vercel.app/v1)**
+**[https://kingsleyaremu-v1.vercel.app](https://kingsleyaremu-v1.vercel.app)**
 
 ## Contributing
 
