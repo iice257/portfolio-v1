@@ -19,7 +19,7 @@ Previous portfolio website for Kingsley Aremu, a React (Native) Web and Mobile A
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vercel](https://vercel.com/) (deployment)
 
-##Project URL
+## Project URL
 
 Project is live at:
 
