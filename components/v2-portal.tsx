@@ -135,8 +135,8 @@ export default function V2Portal() {
           </span>
           <span className="v2-portal-arrow" ref={arrowRef} aria-hidden="true">
             <svg
-              width="16"
-              height="16"
+              width="14"
+              height="14"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
