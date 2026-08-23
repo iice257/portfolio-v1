@@ -22,61 +22,52 @@ export default function V2Portal() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     let running = false
     let timer: ReturnType<typeof setInterval> | null = null
+    let fontsReady = false
 
     const scramble = () => {
-      if (running || reduceMotion || !textEl.dataset.ready) return
+      if (running || !fontsReady || reduceMotion) return
       running = true
-      const chars = Array.from(TARGET_TEXT)
-      const spans = Array.from(textEl.children) as HTMLSpanElement[]
-      if (spans.length !== chars.length) {
-        running = false
-        return
-      }
 
-      const naturalWidth = textEl.getBoundingClientRect().width
-      textEl.style.width = `${Math.ceil(naturalWidth)}px`
+      const chars = Array.from(TARGET_TEXT)
+
+      const charSpans = chars.map((ch) => {
+        const span = document.createElement("span")
+        span.className = "v2-portal-char"
+        span.textContent = ch === " " ? "\u00A0" : ch
+        return span
+      })
+
+      textEl.textContent = ""
+      charSpans.forEach((span) => textEl.appendChild(span))
+
+      const naturalWidth = Math.ceil(textEl.getBoundingClientRect().width)
+
+      textEl.style.width = `${naturalWidth}px`
       textEl.classList.add("is-shuffling")
 
       let step = 0
       timer = setInterval(() => {
         step += 1
         const progress = step / TOTAL_STEPS
-        spans.forEach((span, i) => {
+        charSpans.forEach((span, i) => {
           if (chars[i] === "\u00A0") return
           span.textContent =
-            i / spans.length < progress
-              ? chars[i] === "\u00A0"
-                ? "\u00A0"
-                : chars[i]
+            i / charSpans.length < progress
+              ? chars[i]
               : SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
         })
 
         if (step >= TOTAL_STEPS) {
           if (timer) clearInterval(timer)
           timer = null
-          spans.forEach((span, i) => {
-            span.textContent = chars[i]
+          charSpans.forEach((span, i) => {
+            span.textContent = chars[i] === " " ? "\u00A0" : chars[i]
           })
           textEl.style.width = ""
           textEl.classList.remove("is-shuffling")
           running = false
         }
       }, STEP_MS)
-    }
-
-    if (!reduceMotion) {
-      const charSpans = Array.from(TARGET_TEXT).map((ch) => {
-        const span = document.createElement("span")
-        span.className = "v2-portal-char"
-        span.textContent = ch === " " ? "\u00A0" : ch
-        return span
-      })
-      textEl.textContent = ""
-      charSpans.forEach((span) => textEl.appendChild(span))
-      textEl.dataset.ready = "1"
-      window.setTimeout(scramble, 600)
-
-      root.addEventListener("mouseenter", scramble)
     }
 
     let magnetAllowed = false
@@ -102,6 +93,19 @@ export default function V2Portal() {
         root.addEventListener("pointerleave", onPointerLeave)
       }
     }
+
+    if (!reduceMotion) {
+      root.addEventListener("mouseenter", scramble)
+      const fontsPromise = document.fonts?.ready ?? Promise.resolve()
+      Promise.race([
+        fontsPromise,
+        new Promise((resolve) => setTimeout(resolve, 1500)),
+      ]).then(() => {
+        fontsReady = true
+        window.setTimeout(scramble, 600)
+      })
+    }
+
     syncMagnet()
     motionQuery.addEventListener("change", syncMagnet)
 
@@ -131,8 +135,8 @@ export default function V2Portal() {
           </span>
           <span className="v2-portal-arrow" ref={arrowRef} aria-hidden="true">
             <svg
-              width="18"
-              height="18"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
