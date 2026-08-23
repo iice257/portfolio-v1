@@ -283,7 +283,7 @@ header.scrolled {
   margin-top: 1rem;
   padding: 0.45rem 0.85rem;
   background-color: hsl(var(--card));
-  border: 2px solid hsl(var(--primary));
+  border: 1px solid hsl(var(--primary));
   border-radius: 9999px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   color: hsl(var(--foreground));
