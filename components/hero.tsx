@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowUpCircle, Download, Github, Linkedin, Mail, ScrollText } from "lucide-react"
+import { Github, Linkedin, Mail, ScrollText } from "lucide-react"
 import Link from "next/link"
 import { FaReact } from "react-icons/fa"
 
@@ -34,7 +34,7 @@ export default function Hero() {
               <Link href="#contact">Get In Touch</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="rounded-full">
-              <a href="/KingsleyAremuResumé.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 <ScrollText className="mr-2 h-4 w-4" /> View Resumé
               </a>
             </Button>

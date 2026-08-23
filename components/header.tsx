@@ -7,7 +7,6 @@ import { ModeToggle } from "./mode-toggle"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
@@ -28,7 +27,6 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("home")
-  const pathname = usePathname()
 
   // Function to determine which section is currently in view
   const determineActiveSection = useCallback(() => {
@@ -97,27 +95,26 @@ export default function Header() {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-            <Button variant="ghost" size="icon" asChild className="items-center">
-              <Link href="/" target="_blank" rel="noopener noreferrer">
-                <Image
-                  src="/favicon.ico"
-                  alt="Home"
-                  width={50}
-                  height={50}
-                  className="rounded-lg mt-2"
-                />
-              </Link>
-            </Button>
-          </motion.div>
-        </Link>
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <Button variant="ghost" size="icon" asChild className="items-center">
+            <Link href="/" aria-label="Home">
+              <Image
+                src="/favicon.ico"
+                alt="Home"
+                width={50}
+                height={50}
+                priority
+                className="rounded-lg mt-2"
+              />
+            </Link>
+          </Button>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex flex-grow justify-center">

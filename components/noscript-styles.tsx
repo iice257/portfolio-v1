@@ -9,14 +9,16 @@ export default function NoScriptStyles() {
           display: none !important;
         }
         
-        /* Show no-js alternatives */
-        .no-js {
-          display: block !important;
+        /* Ensure all sections are visible without animations */
+        .animate-in {
+          opacity: 1 !important;
+          transform: none !important;
+          animation: none !important;
         }
         
-        /* Ensure all sections are visible without animations */
-        .animate-in, 
-        [data-motion="hidden"] {
+        /* Framer-motion renders nav/logo with inline opacity:0 styles.
+           Force them visible when JS is unavailable. */
+        header [style] {
           opacity: 1 !important;
           transform: none !important;
         }

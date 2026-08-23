@@ -1,10 +1,11 @@
 import type React from "react"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Analytics } from "@/components/analytics"
 import ClientLayout from "./client"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kingsleyaremu-v1.vercel.app"),
   title: "Kingsley Aremu | React Developer",
   description:
     "Portfolio of Kingsley Aremu, a React (Native) Web and Mobile App Developer specializing in JavaScript, TypeScript, React.js and React Native, Node.js, and SwiftUI.",
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kingsleyaremu.com",
+    url: "https://kingsleyaremu-v1.vercel.app",
     title: "Kingsley Aremu | React Developer",
     description:
       "Portfolio of Kingsley Aremu, a React (Native) Web and Mobile App Developer specializing in JavaScript, TypeScript, React.js and React Native, Node.js, and SwiftUI.",
@@ -49,18 +50,20 @@ export const metadata: Metadata = {
     title: "Kingsley Aremu | React Developer",
     description:
       "Portfolio of Kingsley Aremu, a React (Native) Web and Mobile App Developer specializing in JavaScript, TypeScript, React.js and React Native, Node.js, and SwiftUI.",
-    creator: "@kingsleyaremu",
+    creator: "@iice257",
     images: ["/favicon.png"],
   },
   robots: {
     index: true,
     follow: true,
   },
+}
+
+export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
-    generator: 'v0.app'
 }
 
 export default function RootLayout({

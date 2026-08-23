@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kingsley Aremu's Portfolio",
     description: "Explore my projects, skills, and experience as a software developer.",
-    url: "https://kingsleyaremu.vercel.app",
+    url: "https://kingsleyaremu-v1.vercel.app",
     siteName: "Kingsley Aremu",
     images: [
       {
-        url: "https://kingsleyaremu.vercel.app/favicon.png",
+        url: "/favicon.png",
         width: 500,
         height: 500,
         alt: "A preview of Kingsley Aremu's portfolio",

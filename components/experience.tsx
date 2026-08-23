@@ -1,7 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Skills from "./skills-content"
-import { title } from "process"
 
 export default function Experience() {
   const experiences = [
@@ -49,7 +48,18 @@ export default function Experience() {
       "Delivered 20+ websites across industries including crypto, NGOs, real estate, and religious organizations",
       "Built scalable web apps using Wix Studio, custom HTML/CSS/JS, and backend functionality with Wix Velo",
       "Developed NFT platforms with advanced features such as referral systems, rewards, and live databases",
-      "Led redesign and long-term maintenance for GamblePause.com, an NGO site with functionalities comparable to GambleAware",
+      <>
+        Led redesign and long-term maintenance for{" "}
+        <a
+          href="https://gamblepause.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline underline-offset-2 hover:text-primary transition-colors"
+        >
+          GamblePause.com
+        </a>
+        , an NGO site with functionalities comparable to GambleAware
+      </>,
       "Implemented user-focused designs with performance optimizations, responsive layouts, and clean UI",
     ],
   },
