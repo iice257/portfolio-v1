@@ -275,7 +275,20 @@ header.scrolled {
    tokens, site radius). On hover it morphs into the
    newer portfolio's dark design. Contents centered.
    =========================================== */
+@property --v2-portal-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes v2-portal-border-shimmer {
+  to {
+    --v2-portal-angle: 360deg;
+  }
+}
+
 .v2-portal {
+  position: relative;
   display: flex;
   justify-content: center;
   width: max-content;
@@ -283,7 +296,7 @@ header.scrolled {
   margin-top: 1rem;
   padding: 0.45rem 0.85rem;
   background-color: hsl(var(--card));
-  border: 1px solid hsl(var(--primary));
+  border: 1px solid transparent;
   border-radius: 9999px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   color: hsl(var(--foreground));
@@ -294,6 +307,36 @@ header.scrolled {
     box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-portal::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--v2-portal-angle),
+    hsl(var(--primary)) 0deg,
+    #dbeafe 42deg,
+    hsl(var(--primary)) 84deg,
+    hsl(var(--primary) / 0.35) 190deg,
+    hsl(var(--primary)) 300deg,
+    hsl(var(--primary)) 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: v2-portal-border-shimmer 3.2s linear infinite;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-portal:hover::before,
+.v2-portal:focus-visible::before {
+  opacity: 0;
 }
 
 .v2-portal:hover,
@@ -409,5 +452,9 @@ header.scrolled {
   .v2-portal-text,
   .v2-portal-text::after {
     transition: none;
+  }
+
+  .v2-portal::before {
+    animation: none;
   }
 }
