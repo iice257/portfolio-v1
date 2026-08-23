@@ -108,3 +108,7 @@ Styled in globals.css (\.v2-portal\ block) with v2's exact tokens (\#0a0a0a\, \#
 Fonts: Inter + IBM Plex Mono self-hosted via next/font as \--v2-font-inter\ / \--v2-font-ibm-plex-mono\.
 
 Note: styled-jsx was tried first and dropped - App Router without a style registry does not server-render styled-jsx styles (verified: even client.tsx's pre-existing global style tag never reaches the exported HTML).
+
+## 9b. Portal revision (per owner review)
+
+White hover glow replaces mint; corners squared (v2 has zero roundness); width is now max-content so each line sits on one line without wrapping; copy changed to top: \"this version of my portfolio is now outdated.\" bottom: \"Go to the newest version\".
