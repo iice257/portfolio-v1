@@ -17,6 +17,7 @@ export default function Footer() {
         <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 hidden md:block js-only animate-pulse">
           <Link
             href="#"
+            aria-label="Back to top"
             onClick={(e) => {
               e.preventDefault()
               window.scrollTo({ top: 0, behavior: "smooth" })

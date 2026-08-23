@@ -2,29 +2,29 @@
 
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
 import { useState, useEffect } from "react"
 import clsx from "clsx"
-//import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu
 
 export function ModeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [isDarkMode, setIsDarkMode] = useState(theme === "dark")
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
+  // next-themes can only resolve the stored/system theme on the client,
+  // so render the light position until mounted, then reflect reality.
   useEffect(() => {
-    setIsDarkMode(theme === "dark")
-  }, [theme])
+    setMounted(true)
+  }, [])
+
+  const isDarkMode = mounted && resolvedTheme === "dark"
 
   const handleToggle = () => {
-    const newMode = !isDarkMode
-    setIsDarkMode(newMode)
-    setTheme(newMode ? "dark" : "light")
+    setTheme(isDarkMode ? "light" : "dark")
   }
 
   return (
     <button
+      type="button"
+      aria-label="Toggle theme"
       onClick={handleToggle}
       className={clsx(
         "relative w-14 h-8 rounded-full flex items-center transition-colors duration-300",

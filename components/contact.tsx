@@ -80,7 +80,7 @@ export default function Contact() {
                       </Button>
                       <noscript>
                         <p className="text-sm text-center text-muted-foreground mt-2">
-                          Please enable JavaScript to use the form, or email me directly.
+                          This form also works with JavaScript disabled, or email me directly.
                         </p>
                       </noscript>
                     </form>
