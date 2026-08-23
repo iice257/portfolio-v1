@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 
-const TARGET_TEXT = "Open v2 Portfolio"
+const TARGET_TEXT = "Go to the newest version"
 const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const TOTAL_STEPS = 14
 const STEP_MS = 42
@@ -120,11 +120,11 @@ export default function V2Portal() {
       href="https://kingsleyaremu.vercel.app"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Open v2 Portfolio, the current edition at kingsleyaremu.vercel.app"
+      aria-label="Go to the newest version of my portfolio at kingsleyaremu.vercel.app"
       className="v2-portal"
     >
       <span className="v2-portal-copy">
-        <span className="v2-portal-label">Current Edition · 2026</span>
+        <span className="v2-portal-label">this version of my portfolio is now outdated.</span>
         <span className="v2-portal-text" ref={textRef}>
           {TARGET_TEXT}
         </span>
