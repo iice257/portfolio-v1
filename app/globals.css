@@ -283,7 +283,7 @@ header.scrolled {
   margin-top: 1rem;
   padding: 0.9rem 1.4rem;
   background-color: hsl(var(--card));
-  border: 2px solid hsl(var(--border));
+  border: 1px solid hsl(var(--border));
   border-radius: 9999px;
   color: hsl(var(--foreground));
   text-decoration: none;
@@ -304,6 +304,11 @@ header.scrolled {
     0 10px 32px -14px rgba(255, 255, 255, 0.28);
   transform: translateY(-2px);
   outline: none;
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .v2-portal-copy {
