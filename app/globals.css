@@ -269,3 +269,124 @@ header.scrolled {
 .dark .card-glow::before {
   background: radial-gradient(circle, hsl(var(--primary) / 80%) 0%, transparent 70%);
 } */
+/* ===========================================
+   V2 PORTAL PANEL - styled with the current
+   portfolio's design tokens (kingsleyaremu.vercel.app)
+   Dark panel stays constant across v1 themes on purpose:
+   it is an artifact from the newer site.
+   =========================================== */
+.v2-portal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  width: min(100%, 620px);
+  margin-top: 1rem;
+  padding: 0.9rem 1.25rem;
+  background: #0a0a0a;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  color: #fafafa;
+  text-decoration: none;
+  text-align: left;
+  transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-portal:hover,
+.v2-portal:focus-visible {
+  border-color: rgba(124, 255, 203, 0.45);
+  box-shadow: 0 0 0 1px rgba(124, 255, 203, 0.12),
+    0 10px 32px -14px rgba(124, 255, 203, 0.3);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.v2-portal-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.v2-portal-label {
+  font-family: var(--v2-font-ibm-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #737373;
+}
+
+.v2-portal-text {
+  position: relative;
+  align-self: flex-start;
+  font-family: var(--v2-font-inter), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: #fafafa;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.v2-portal-text::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fafafa;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-portal:hover .v2-portal-text::after {
+  width: 100%;
+  background: #7cffcb;
+}
+
+.v2-portal-text.is-shuffling {
+  display: inline-block;
+}
+
+.v2-portal-char {
+  display: inline-block;
+  white-space: pre;
+}
+
+.v2-portal-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: #737373;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-portal:hover .v2-portal-arrow {
+  color: #7cffcb;
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 480px) {
+  .v2-portal {
+    padding: 0.8rem 1rem;
+  }
+
+  .v2-portal-text {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-portal,
+  .v2-portal-arrow,
+  .v2-portal-text::after {
+    transition: none;
+  }
+}

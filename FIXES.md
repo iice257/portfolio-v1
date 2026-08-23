@@ -93,3 +93,18 @@ Back-to-top icon link had no accessible name — added `aria-label="Back to top"
 - `npm run build` ✓ clean compile, zero warnings, static export succeeds
 - Built HTML inspected: correct og/twitter domains, single (non-nested) home anchor, `header [style]` noscript rule present, `.no-js` gone, `resume.pdf` referenced, GamblePause link present, two labeled theme toggles
 - Note: repo intentionally has **no committed lockfile**. One was tried initially, but Vercel deployments failed with it present (its install strategy changes when a lockfile exists; the project's legacy peer-dependency tree breaks under that path — local `npm ci` + build pass fine). Removed to restore the previously-working deploy behavior. `.npmrc` with `legacy-peer-deps=true` is kept so fresh clones / `npm ci` still resolve cleanly locally.
+
+## 9. V2 portal panel (hero)
+
+**Files:** \components/v2-portal.tsx\, \pp/globals.css\, \pp/client.tsx\, \components/hero.tsx\
+
+New hero element linking to the current portfolio. Dependency-free ports of v2's signature interactions:
+- ShuffleText-style progressive scramble (plays ~600ms after load, replays on hover, width-clipped during shuffle)
+- link-underline sweep and magnetic arrow drift; every timing uses v2's cubic-bezier(0.16, 1, 0.3, 1)
+- Respects prefers-reduced-motion; renders as plain static text/link without JS
+
+Styled in globals.css (\.v2-portal\ block) with v2's exact tokens (\#0a0a0a\, \#262626\, \#737373\, \#fafafa\, \#7CFFCB\). Panel stays dark in both v1 themes deliberately - it reads as an artifact from the newer site.
+
+Fonts: Inter + IBM Plex Mono self-hosted via next/font as \--v2-font-inter\ / \--v2-font-ibm-plex-mono\.
+
+Note: styled-jsx was tried first and dropped - App Router without a style registry does not server-render styled-jsx styles (verified: even client.tsx's pre-existing global style tag never reaches the exported HTML).

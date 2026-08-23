@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { Mona_Sans as FontSans } from "next/font/google"
+import { IBM_Plex_Mono as FontPlexMono, Inter as FontInter, Mona_Sans as FontSans } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
@@ -13,6 +13,20 @@ import NoScriptStyles from "@/components/noscript-styles"
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+})
+
+const fontV2Inter = FontInter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--v2-font-inter",
+  display: "swap",
+})
+
+const fontV2PlexMono = FontPlexMono({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--v2-font-ibm-plex-mono",
+  display: "swap",
 })
 
 export default function ClientLayout({
@@ -35,7 +49,7 @@ export default function ClientLayout({
           }
         `}</style>
       </head>
-      <body className={cn("min-h-screen bg-background font-mono antialiased", fontSans.variable)}>
+      <body className={cn("min-h-screen bg-background font-mono antialiased", fontSans.variable, fontV2Inter.variable, fontV2PlexMono.variable)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true} disableTransitionOnChange>
           <div className="relative flex min-h-screen flex-col overflow-hidden">
             <noscript>
