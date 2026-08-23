@@ -270,32 +270,33 @@ header.scrolled {
   background: radial-gradient(circle, hsl(var(--primary) / 80%) 0%, transparent 70%);
 } */
 /* ===========================================
-   V2 PORTAL PANEL - styled with the current
-   portfolio's design tokens (kingsleyaremu.vercel.app)
-   Dark panel stays constant across v1 themes on purpose:
-   it is an artifact from the newer site.
+   V2 PORTAL PANEL
+   Idle state speaks v1's card language (theme-aware
+   tokens, site radius). On hover it morphs into the
+   newer portfolio's dark design. Contents centered.
    =========================================== */
 .v2-portal {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
+  justify-content: center;
   width: max-content;
   max-width: 100%;
   margin-top: 1rem;
   padding: 0.9rem 1.25rem;
-  background: #0a0a0a;
-  border: 1px solid #262626;
-  color: #fafafa;
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  color: hsl(var(--foreground));
   text-decoration: none;
-  text-align: left;
-  transition: border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .v2-portal:hover,
 .v2-portal:focus-visible {
+  background-color: #0a0a0a;
   border-color: rgba(255, 255, 255, 0.4);
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
     0 10px 32px -14px rgba(255, 255, 255, 0.28);
@@ -306,8 +307,8 @@ header.scrolled {
 .v2-portal-copy {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.3rem;
-  min-width: 0;
 }
 
 .v2-portal-label {
@@ -315,21 +316,36 @@ header.scrolled {
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: #737373;
+  color: hsl(var(--muted-foreground));
   white-space: nowrap;
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-portal:hover .v2-portal-label {
+  color: #737373;
+}
+
+.v2-portal-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
 
 .v2-portal-text {
   position: relative;
-  align-self: flex-start;
   font-family: var(--v2-font-inter), system-ui, sans-serif;
   font-size: 1.0625rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.35;
-  color: #fafafa;
+  color: hsl(var(--foreground));
   white-space: nowrap;
   overflow: hidden;
+  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-portal:hover .v2-portal-text {
+  color: #fafafa;
 }
 
 .v2-portal-text::after {
@@ -339,14 +355,12 @@ header.scrolled {
   left: 0;
   width: 0;
   height: 1px;
-  background: #fafafa;
-  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .v2-portal:hover .v2-portal-text::after {
   width: 100%;
-  background: #fafafa;
 }
 
 .v2-portal-text.is-shuffling {
@@ -363,7 +377,7 @@ header.scrolled {
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  color: #737373;
+  color: hsl(var(--muted-foreground));
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
     color 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -386,6 +400,8 @@ header.scrolled {
 @media (prefers-reduced-motion: reduce) {
   .v2-portal,
   .v2-portal-arrow,
+  .v2-portal-label,
+  .v2-portal-text,
   .v2-portal-text::after {
     transition: none;
   }
