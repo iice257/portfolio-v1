@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, ScrollText } from "lucide-react"
 import Link from "next/link"
 import { FaReact } from "react-icons/fa"
+import V2Portal from "./v2-portal"
 
 export default function Hero() {
   return (
@@ -39,6 +40,7 @@ export default function Hero() {
               </a>
             </Button>
           </div>
+          <V2Portal />
           <div className="flex gap-4 mt-6">
             <Button variant="ghost" size="icon" asChild>
               <Link href="https://github.com/iice257" target="_blank" rel="noopener noreferrer">
