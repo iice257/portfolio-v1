@@ -92,4 +92,4 @@ Back-to-top icon link had no accessible name — added `aria-label="Back to top"
 
 - `npm run build` ✓ clean compile, zero warnings, static export succeeds
 - Built HTML inspected: correct og/twitter domains, single (non-nested) home anchor, `header [style]` noscript rule present, `.no-js` gone, `resume.pdf` referenced, GamblePause link present, two labeled theme toggles
-- Note: repo had no lockfile and peer-dep conflicts; installed with `npm install --legacy-peer-deps`. This produced an untracked `package-lock.json` — keep or delete as preferred.
+- Note: repo intentionally has **no committed lockfile**. One was tried initially, but Vercel deployments failed with it present (its install strategy changes when a lockfile exists; the project's legacy peer-dependency tree breaks under that path — local `npm ci` + build pass fine). Removed to restore the previously-working deploy behavior. `.npmrc` with `legacy-peer-deps=true` is kept so fresh clones / `npm ci` still resolve cleanly locally.
