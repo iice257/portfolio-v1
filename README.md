@@ -6,8 +6,8 @@ v1 of Kingsley Aremu's portfolio, originally shipped in 2025. A React (Native) W
 
 This site stays live as part of the portfolio's version history — every version keeps its own URL:
 
-- **v1 (this repo):** [kingsleyaremu.com](https://kingsleyaremu.com)
-- **Current version:** [kingsleyaremu-v2.vercel.app](https://kingsleyaremu-v2.vercel.app)
+- **v1 (this repo):** [v1.kingsleyaremu.com](https://v1.kingsleyaremu.com)
+- **Current version:** [kingsleyaremu.com](https://kingsleyaremu.com)
 
 ## Features
 
@@ -30,9 +30,9 @@ This site stays live as part of the portfolio's version history — every versio
 
 Live at:
 
-**[https://kingsleyaremu.com](https://kingsleyaremu.com)**
+**[https://v1.kingsleyaremu.com](https://v1.kingsleyaremu.com)**
 
-The full, current project catalogue lives at [kingsleyaremu-v2.vercel.app/projects](https://kingsleyaremu-v2.vercel.app/projects).
+The full, current project catalogue lives at [kingsleyaremu.com/projects](https://kingsleyaremu.com/projects).
 
 ## Contributing
 
