@@ -121,10 +121,10 @@ export default function V2Portal() {
   return (
     <Link
       ref={rootRef}
-      href="https://kingsleyaremu.vercel.app"
+      href="https://kingsleyaremu-v2.vercel.app"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Go to the newest version of my portfolio at kingsleyaremu.vercel.app"
+      aria-label="Go to the newest version of my portfolio at kingsleyaremu-v2.vercel.app"
       className="v2-portal"
     >
       <span className="v2-portal-copy">

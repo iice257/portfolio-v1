@@ -23,7 +23,7 @@ export default function Projects() {
             <div className="pt-2">
               <Button asChild variant="outline" size="lg" className="rounded-full">
                 <a
-                  href="https://kingsleyaremu.vercel.app/projects"
+                  href="https://kingsleyaremu-v2.vercel.app/projects"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

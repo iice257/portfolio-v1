@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kingsley Aremu's Portfolio",
     description: "Explore my projects, skills, and experience as a software developer.",
-    url: "https://kingsleyaremu-v1.vercel.app",
+    url: "https://kingsleyaremu.com",
     siteName: "Kingsley Aremu",
     images: [
       {
