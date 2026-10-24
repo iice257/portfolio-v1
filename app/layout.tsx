@@ -5,7 +5,7 @@ import ClientLayout from "./client"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kingsleyaremu.com"),
+  metadataBase: new URL("https://v1.kingsleyaremu.com"),
   title: "Kingsley Aremu | React Developer",
   description:
     "Portfolio of Kingsley Aremu, a React (Native) Web and Mobile App Developer specializing in JavaScript, TypeScript, React.js and React Native, Node.js, and SwiftUI.",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kingsleyaremu.com",
+    url: "https://v1.kingsleyaremu.com",
     title: "Kingsley Aremu | React Developer",
     description:
       "Portfolio of Kingsley Aremu, a React (Native) Web and Mobile App Developer specializing in JavaScript, TypeScript, React.js and React Native, Node.js, and SwiftUI.",
